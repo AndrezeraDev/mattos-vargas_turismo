@@ -1,0 +1,17 @@
+.manifesto {
+  padding: 20vh 0 16vh;
+  background: var(--paper);
+}
+
+.manifesto-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4.2vw, 3.3rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.18;
+  max-width: 940px;
+}
+
+.manifesto-word {
+  will-change: opacity;
+}

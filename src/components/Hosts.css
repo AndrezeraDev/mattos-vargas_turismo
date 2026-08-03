@@ -1,0 +1,61 @@
+.hosts {
+  background: var(--paper);
+  padding: 60px 0 120px;
+}
+
+.hosts-card {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 0;
+  background: var(--paper-dim);
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-width: var(--max-wide);
+}
+
+.hosts-copy {
+  padding: clamp(36px, 6vw, 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hosts-kicker {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 16px;
+}
+
+.hosts-text {
+  margin-top: 18px;
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  max-width: 430px;
+}
+
+.hosts-copy .text-link {
+  margin-top: 26px;
+}
+
+.hosts-media {
+  min-height: 420px;
+}
+
+.hosts-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 860px) {
+  .hosts-card {
+    grid-template-columns: 1fr;
+  }
+  .hosts-media {
+    min-height: 300px;
+    order: -1;
+  }
+}

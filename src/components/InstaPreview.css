@@ -1,0 +1,87 @@
+.insta {
+  background: var(--paper);
+  padding: 20px 0 120px;
+}
+
+.insta-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background: var(--paper-dim);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.insta-copy {
+  padding: clamp(36px, 6vw, 80px);
+}
+
+.insta-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 16px;
+}
+
+.insta-kicker svg {
+  font-size: 1.05rem;
+}
+
+.insta-text {
+  margin: 18px 0 28px;
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  max-width: 380px;
+  overflow-wrap: anywhere;
+}
+
+.insta-follow {
+  white-space: nowrap;
+  font-size: clamp(0.85rem, 2.6vw, 1rem);
+  padding: 13px 24px;
+  max-width: 100%;
+}
+
+.insta-follow-short {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .insta-follow-full {
+    display: none;
+  }
+  .insta-follow-short {
+    display: inline;
+  }
+}
+
+.insta-frame {
+  padding: clamp(20px, 3vw, 44px);
+}
+
+.insta-frame iframe {
+  display: block;
+  width: 100%;
+  height: 560px;
+  border: none;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 900px) {
+  .insta-card {
+    grid-template-columns: 1fr;
+  }
+  .insta-frame {
+    padding-top: 0;
+  }
+  .insta-frame iframe {
+    height: 480px;
+  }
+}

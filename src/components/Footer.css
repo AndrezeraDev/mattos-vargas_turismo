@@ -1,0 +1,53 @@
+.footer {
+  background: var(--paper);
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 40px 0 48px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.footer-brand span {
+  color: var(--wine);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--ink);
+}
+
+.footer-note {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

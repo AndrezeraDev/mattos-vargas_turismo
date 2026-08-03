@@ -1,0 +1,52 @@
+.rail {
+  background: var(--paper);
+  padding: 40px 0 120px;
+  overflow: hidden;
+}
+
+.rail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.rail-track {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 4px max(28px, calc((100vw - var(--max-wide)) / 2 + 28px)) 24px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.rail-track::-webkit-scrollbar {
+  display: none;
+}
+
+.rail-item {
+  flex: 0 0 auto;
+  width: min(420px, 78vw);
+  scroll-snap-align: start;
+}
+
+.rail-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 22px;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.rail-item:hover img {
+  transform: scale(1.02);
+}
+
+.rail-item figcaption {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}

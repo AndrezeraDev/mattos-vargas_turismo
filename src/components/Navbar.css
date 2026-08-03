@@ -1,0 +1,146 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.nav.is-solid,
+.nav.is-open {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.nav-inner {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #fff;
+  transition: color 0.35s ease;
+}
+
+.nav-brand span {
+  color: var(--wine);
+}
+
+.nav.is-solid .nav-brand,
+.nav.is-open .nav-brand {
+  color: var(--ink);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 28px;
+  margin-left: auto;
+}
+
+.nav-menu a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  color: #fff;
+}
+
+.nav.is-solid .nav-menu a {
+  color: rgba(29, 29, 31, 0.72);
+}
+
+.nav.is-solid .nav-menu a:hover {
+  color: var(--ink);
+}
+
+.nav-cta {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.nav-cta:hover {
+  transform: scale(1.04);
+}
+
+.nav.is-solid .nav-cta {
+  background: var(--wine);
+  color: #fff;
+}
+
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  padding: 8px;
+}
+
+.nav-burger span {
+  display: block;
+  height: 1.5px;
+  width: 22px;
+  background: #fff;
+  transition: transform 0.3s ease, background 0.35s ease;
+}
+
+.nav.is-solid .nav-burger span,
+.nav.is-open .nav-burger span {
+  background: var(--ink);
+}
+
+.nav.is-open .nav-burger span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.nav.is-open .nav-burger span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+.nav-sheet {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 28px 26px;
+  gap: 18px;
+}
+
+.nav-sheet a {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+@media (max-width: 860px) {
+  .nav-menu,
+  .nav-cta {
+    display: none;
+  }
+  .nav-burger {
+    display: flex;
+  }
+}

@@ -1,0 +1,85 @@
+import { useEffect } from 'react';
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  useLocation,
+} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Manifesto from './components/Manifesto';
+import Showcase from './components/Showcase';
+import BentoGrid from './components/BentoGrid';
+import Stats from './components/Stats';
+import Hosts from './components/Hosts';
+import GalleryRail from './components/GalleryRail';
+import InstaPreview from './components/InstaPreview';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import WhatsappFloat from './components/WhatsappFloat';
+import TourPage from './components/TourPage';
+import LinksPage from './components/Links';
+import BackFloat from './components/BackFloat';
+import './App.css';
+
+function HomePage() {
+  return (
+    <main>
+      <Hero />
+      <Manifesto />
+      <Showcase />
+      <BentoGrid />
+      <Stats />
+      <Hosts />
+      <GalleryRail />
+      <InstaPreview />
+      <Contact />
+    </main>
+  );
+}
+
+function ScrollHandler() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      requestAnimationFrame(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname, hash]);
+  return null;
+}
+
+function Chrome({ children }) {
+  const { pathname } = useLocation();
+  const bare = pathname === '/links';
+  return (
+    <>
+      {!bare && <Navbar />}
+      <BackFloat />
+      {children}
+      {!bare && <Footer />}
+      {!bare && <WhatsappFloat />}
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ScrollHandler />
+      <Chrome>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/passeio/:slug" element={<TourPage />} />
+          <Route path="/links" element={<LinksPage />} />
+        </Routes>
+      </Chrome>
+    </BrowserRouter>
+  );
+}
