@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { tours } from '../data/tours';
 import './BentoGrid.css';
@@ -16,7 +17,13 @@ const SIZES = {
   'rota-boas-compras': '',
 };
 
+const VISIBLE_COUNT = 8;
+
 export default function BentoGrid() {
+  const [showAll, setShowAll] = useState(false);
+  const visibleTours = showAll ? tours : tours.slice(0, VISIBLE_COUNT);
+  const hiddenCount = tours.length - VISIBLE_COUNT;
+
   return (
     <section className="bento" id="experiencias">
       <div className="wrap-wide">
@@ -35,7 +42,7 @@ export default function BentoGrid() {
         </motion.div>
 
         <div className="bento-grid">
-          {tours.map((tour, i) => (
+          {visibleTours.map((tour, i) => (
             <motion.div
               key={tour.slug}
               className={`bento-cell ${SIZES[tour.slug] || ''}`}
@@ -65,6 +72,22 @@ export default function BentoGrid() {
             </motion.div>
           ))}
         </div>
+
+        {hiddenCount > 0 && (
+          <div className="bento-toggle-wrap">
+            <motion.button
+              type="button"
+              className="bento-toggle"
+              onClick={() => setShowAll((v) => !v)}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              {showAll
+                ? 'Ver menos'
+                : `Ver mais ${hiddenCount === 1 ? 'experiência' : 'experiências'} (${hiddenCount})`}
+            </motion.button>
+          </div>
+        )}
       </div>
     </section>
   );

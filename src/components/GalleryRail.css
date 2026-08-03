@@ -6,11 +6,39 @@
 
 .rail-head {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 24px;
   flex-wrap: wrap;
   margin-bottom: 40px;
+}
+
+.rail-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.rail-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.rail-arrows button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  color: var(--ink);
+  background: var(--paper-dim);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.rail-arrows button:hover {
+  background: var(--ink);
+  color: #fff;
+  transform: scale(1.06);
 }
 
 .rail-track {

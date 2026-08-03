@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import { INSTAGRAM_URL } from '../data/tours';
 import './GalleryRail.css';
 
@@ -13,7 +14,41 @@ const photos = [
   { src: '/assets/galeria/casa-da-ovelha.jpg', caption: 'Casa da Ovelha' },
 ];
 
+const AUTOPLAY_MS = 4500;
+
 export default function GalleryRail() {
+  const trackRef = useRef(null);
+  const pausedRef = useRef(false);
+
+  const step = (dir) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const card = track.querySelector('.rail-item');
+    if (!card) return;
+    const delta = (card.offsetWidth + 18) * dir;
+    const atEnd =
+      track.scrollLeft + track.clientWidth >= track.scrollWidth - 10;
+    if (dir > 0 && atEnd) {
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      track.scrollBy({ left: delta, behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (!pausedRef.current) step(1);
+    }, AUTOPLAY_MS);
+    return () => clearInterval(id);
+  }, []);
+
+  const pause = () => {
+    pausedRef.current = true;
+  };
+  const resume = () => {
+    pausedRef.current = false;
+  };
+
   return (
     <section className="rail" id="galeria">
       <div className="wrap-wide rail-head">
@@ -26,21 +61,49 @@ export default function GalleryRail() {
         >
           A Serra, em detalhes.
         </motion.h2>
-        <motion.a
-          href={INSTAGRAM_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="text-link"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-        >
-          Ver mais no Instagram <span className="arrow">→</span>
-        </motion.a>
+
+        <div className="rail-controls">
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="text-link"
+          >
+            Ver mais no Instagram <span className="arrow">→</span>
+          </a>
+          <div className="rail-arrows">
+            <button
+              type="button"
+              onClick={() => {
+                pause();
+                step(-1);
+              }}
+              aria-label="Fotos anteriores"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                pause();
+                step(1);
+              }}
+              aria-label="Próximas fotos"
+            >
+              →
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div className="rail-track" role="list">
+      <div
+        className="rail-track"
+        role="list"
+        ref={trackRef}
+        onPointerEnter={pause}
+        onPointerLeave={resume}
+        onTouchStart={pause}
+      >
         {photos.map((p, i) => (
           <motion.figure
             key={p.src}
