@@ -14,6 +14,7 @@ import Stats from './components/Stats';
 import Hosts from './components/Hosts';
 import GalleryRail from './components/GalleryRail';
 import InstaPreview from './components/InstaPreview';
+import Reviews from './components/Reviews';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsappFloat from './components/WhatsappFloat';
@@ -32,6 +33,7 @@ function HomePage() {
       <Stats />
       <Hosts />
       <GalleryRail />
+      <Reviews />
       <InstaPreview />
       <Contact />
     </main>

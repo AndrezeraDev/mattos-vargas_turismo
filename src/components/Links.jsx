@@ -6,6 +6,7 @@ import {
   FiMapPin,
   FiShoppingBag,
   FiCompass,
+  FiStar,
 } from 'react-icons/fi';
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import {
@@ -15,6 +16,7 @@ import {
   WHATSAPP_NUMBER,
   buildWhatsappLink,
 } from '../data/tours';
+import { GOOGLE_REVIEWS_URL } from '../data/reviews';
 import './Links.css';
 
 const links = [
@@ -50,6 +52,13 @@ const links = [
     label: 'Rota Boas Compras na Serra',
     hint: 'Couro, malhas e calçados com vantagens exclusivas',
     to: '/passeio/rota-boas-compras',
+  },
+  {
+    icon: <FiStar />,
+    label: 'Avaliações no Google',
+    hint: 'Veja o que nossos viajantes dizem',
+    href: GOOGLE_REVIEWS_URL,
+    external: true,
   },
   {
     icon: <FiInfo />,
