@@ -1,6 +1,52 @@
 .manifesto {
+  position: relative;
   padding: 20vh 0 16vh;
   background: var(--paper);
+}
+
+.manifesto .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.grape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.grape svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 14px 28px rgba(90, 26, 47, 0.18));
+}
+
+.grape-a {
+  right: 7%;
+  top: 6%;
+  width: 130px;
+}
+
+.grape-b {
+  left: 4%;
+  bottom: 8%;
+  width: 84px;
+  opacity: 0.45;
+  filter: blur(1.5px);
+}
+
+@media (max-width: 860px) {
+  .grape-a {
+    width: 84px;
+    right: 4%;
+    top: 2%;
+    opacity: 0.8;
+  }
+  .grape-b {
+    display: none;
+  }
 }
 
 .manifesto-text {

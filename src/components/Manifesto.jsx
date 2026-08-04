@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import GrapeSVG from './GrapeSVG';
 import './Manifesto.css';
 
 const TEXT =
@@ -21,10 +22,36 @@ export default function Manifesto() {
     offset: ['start 0.82', 'end 0.42'],
   });
 
+  /* Progresso ao longo de toda a passagem da seção pela tela — move as uvas */
+  const { scrollYProgress: drift } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+
+  const ySlow = useTransform(drift, [0, 1], [80, -80]);
+  const rotSlow = useTransform(drift, [0, 1], [-8, 10]);
+  const yFast = useTransform(drift, [0, 1], [160, -160]);
+  const rotFast = useTransform(drift, [0, 1], [12, -8]);
+
   const words = TEXT.split(' ');
 
   return (
     <section className="manifesto" ref={ref}>
+      <motion.div
+        className="grape grape-a"
+        style={{ y: ySlow, rotate: rotSlow }}
+        aria-hidden="true"
+      >
+        <GrapeSVG />
+      </motion.div>
+      <motion.div
+        className="grape grape-b"
+        style={{ y: yFast, rotate: rotFast }}
+        aria-hidden="true"
+      >
+        <GrapeSVG />
+      </motion.div>
+
       <div className="wrap">
         <p className="manifesto-text">
           {words.map((word, i) => (
