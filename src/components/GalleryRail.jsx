@@ -12,28 +12,58 @@ const photos = [
   { src: '/assets/galeria/hortensias.jpg', caption: 'Hortênsias da Serra' },
   { src: '/assets/galeria/espumante.jpg', caption: 'Brinde na vinícola' },
   { src: '/assets/galeria/casa-da-ovelha.jpg', caption: 'Casa da Ovelha' },
+  { src: '/assets/maria-fumaca.jpg', caption: 'Passeio de Maria Fumaça' },
+  { src: '/assets/parque-da-ovelha.jpg', caption: 'Parque da Ovelha' },
+  { src: '/assets/vale-dos-vinhedos.jpg', caption: 'Vale dos Vinhedos' },
+  { src: '/assets/vinicola-almoco.jpg', caption: 'Cave da vinícola' },
 ];
 
+/* Loop infinito: a lista é renderizada 2x e o scroll é reposicionado
+   de forma invisível ao cruzar a fronteira entre as cópias. */
+const loopPhotos = [...photos, ...photos];
+
 const AUTOPLAY_MS = 4500;
+const GAP = 18;
 
 export default function GalleryRail() {
   const trackRef = useRef(null);
   const pausedRef = useRef(false);
+
+  const setWidth = () => {
+    const track = trackRef.current;
+    if (!track) return 0;
+    const items = track.querySelectorAll('.rail-item');
+    if (items.length <= photos.length) return 0;
+    return items[photos.length].offsetLeft - items[0].offsetLeft;
+  };
 
   const step = (dir) => {
     const track = trackRef.current;
     if (!track) return;
     const card = track.querySelector('.rail-item');
     if (!card) return;
-    const delta = (card.offsetWidth + 18) * dir;
-    const atEnd =
-      track.scrollLeft + track.clientWidth >= track.scrollWidth - 10;
-    if (dir > 0 && atEnd) {
-      track.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      track.scrollBy({ left: delta, behavior: 'smooth' });
+    if (dir < 0) {
+      const sw = setWidth();
+      if (sw && track.scrollLeft < card.offsetWidth) {
+        // Salta para a cópia seguinte (conteúdo idêntico) antes de voltar
+        track.scrollLeft += sw;
+      }
     }
+    track.scrollBy({ left: (card.offsetWidth + GAP) * dir, behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return undefined;
+    const onScroll = () => {
+      const sw = setWidth();
+      if (sw && track.scrollLeft > sw + 1) {
+        track.scrollLeft -= sw;
+      }
+    };
+    track.addEventListener('scroll', onScroll, { passive: true });
+    return () => track.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -104,9 +134,9 @@ export default function GalleryRail() {
         onPointerLeave={resume}
         onTouchStart={pause}
       >
-        {photos.map((p, i) => (
+        {loopPhotos.map((p, i) => (
           <motion.figure
-            key={p.src}
+            key={`${p.src}-${i}`}
             className="rail-item"
             role="listitem"
             initial={{ opacity: 0, x: 40 }}
