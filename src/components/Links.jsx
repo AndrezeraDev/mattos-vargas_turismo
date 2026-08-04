@@ -96,7 +96,10 @@ export default function LinksPage() {
         animate="visible"
       >
         <motion.div className="links-avatar" variants={item}>
-          M&amp;V
+          <img
+            src="/assets/logo-mattos-vargas.png"
+            alt="Logo Mattos & Vargas Turismo"
+          />
         </motion.div>
         <motion.h1 variants={item}>Mattos &amp; Vargas Turismo</motion.h1>
         <motion.p className="links-bio" variants={item}>
