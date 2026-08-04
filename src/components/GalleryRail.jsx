@@ -18,16 +18,17 @@ const photos = [
   { src: '/assets/vinicola-almoco.jpg', caption: 'Cave da vinícola' },
 ];
 
-/* Loop infinito: a lista é renderizada 2x e o scroll é reposicionado
-   de forma invisível ao cruzar a fronteira entre as cópias. */
+/* Esteira infinita: a lista é renderizada 2x e, ao cruzar a fronteira entre
+   as cópias, o scroll é reposicionado de forma invisível. */
 const loopPhotos = [...photos, ...photos];
 
-const AUTOPLAY_MS = 4500;
+const SPEED = 32; // pixels por segundo do deslize contínuo
 const GAP = 18;
 
 export default function GalleryRail() {
   const trackRef = useRef(null);
   const pausedRef = useRef(false);
+  const resumeTimerRef = useRef(null);
 
   const setWidth = () => {
     const track = trackRef.current;
@@ -35,6 +36,64 @@ export default function GalleryRail() {
     const items = track.querySelectorAll('.rail-item');
     if (items.length <= photos.length) return 0;
     return items[photos.length].offsetLeft - items[0].offsetLeft;
+  };
+
+  const wrap = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const sw = setWidth();
+    if (sw && track.scrollLeft >= sw) {
+      track.scrollLeft -= sw;
+    }
+  };
+
+  /* Deslize contínuo */
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return undefined;
+    let raf;
+    let last = performance.now();
+    let carry = 0;
+    const tick = (now) => {
+      const dt = Math.min(0.1, (now - last) / 1000);
+      last = now;
+      if (!pausedRef.current) {
+        carry += SPEED * dt;
+        const px = Math.floor(carry);
+        if (px >= 1) {
+          track.scrollLeft += px;
+          carry -= px;
+          wrap();
+        }
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  /* Arrasto manual também respeita o loop */
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return undefined;
+    const onScroll = () => wrap();
+    track.addEventListener('scroll', onScroll, { passive: true });
+    return () => track.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const pause = () => {
+    clearTimeout(resumeTimerRef.current);
+    pausedRef.current = true;
+  };
+
+  const resume = () => {
+    clearTimeout(resumeTimerRef.current);
+    pausedRef.current = false;
+  };
+
+  const pauseFor = (ms) => {
+    pause();
+    resumeTimerRef.current = setTimeout(resume, ms);
   };
 
   const step = (dir) => {
@@ -45,38 +104,11 @@ export default function GalleryRail() {
     if (dir < 0) {
       const sw = setWidth();
       if (sw && track.scrollLeft < card.offsetWidth) {
-        // Salta para a cópia seguinte (conteúdo idêntico) antes de voltar
         track.scrollLeft += sw;
       }
     }
+    pauseFor(1800);
     track.scrollBy({ left: (card.offsetWidth + GAP) * dir, behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return undefined;
-    const onScroll = () => {
-      const sw = setWidth();
-      if (sw && track.scrollLeft > sw + 1) {
-        track.scrollLeft -= sw;
-      }
-    };
-    track.addEventListener('scroll', onScroll, { passive: true });
-    return () => track.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      if (!pausedRef.current) step(1);
-    }, AUTOPLAY_MS);
-    return () => clearInterval(id);
-  }, []);
-
-  const pause = () => {
-    pausedRef.current = true;
-  };
-  const resume = () => {
-    pausedRef.current = false;
   };
 
   return (
@@ -104,20 +136,14 @@ export default function GalleryRail() {
           <div className="rail-arrows">
             <button
               type="button"
-              onClick={() => {
-                pause();
-                step(-1);
-              }}
+              onClick={() => step(-1)}
               aria-label="Fotos anteriores"
             >
               ←
             </button>
             <button
               type="button"
-              onClick={() => {
-                pause();
-                step(1);
-              }}
+              onClick={() => step(1)}
               aria-label="Próximas fotos"
             >
               →
@@ -132,21 +158,13 @@ export default function GalleryRail() {
         ref={trackRef}
         onPointerEnter={pause}
         onPointerLeave={resume}
-        onTouchStart={pause}
+        onTouchStart={() => pauseFor(4000)}
       >
         {loopPhotos.map((p, i) => (
-          <motion.figure
-            key={`${p.src}-${i}`}
-            className="rail-item"
-            role="listitem"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.6, delay: (i % 4) * 0.07, ease: [0.2, 0.8, 0.2, 1] }}
-          >
+          <figure key={`${p.src}-${i}`} className="rail-item" role="listitem">
             <img src={p.src} alt={p.caption} loading="lazy" />
             <figcaption>{p.caption}</figcaption>
-          </motion.figure>
+          </figure>
         ))}
       </div>
     </section>
