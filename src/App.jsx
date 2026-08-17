@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import FlyingHat from './components/FlyingHat';
 import Welcome from './components/Welcome';
 import Manifesto from './components/Manifesto';
 import Showcase from './components/Showcase';
@@ -27,6 +28,7 @@ import './App.css';
 function HomePage() {
   return (
     <main>
+      <FlyingHat />
       <Hero />
       <Welcome />
       <Manifesto />

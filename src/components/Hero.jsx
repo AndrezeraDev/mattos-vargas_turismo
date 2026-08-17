@@ -45,7 +45,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.35, ease: [0.2, 0.8, 0.2, 1] }}
         >
-          A Serra Gaúcha.
+          A Serra <span id="hat-stop-g">G</span>aúcha.
           <br />
           Do seu jeito.
         </motion.h1>
