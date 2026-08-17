@@ -6,9 +6,11 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="wrap-wide footer-inner">
-        <p className="footer-brand">
-          Mattos <span>&amp;</span> Vargas
-        </p>
+        <img
+          className="footer-logo"
+          src="/assets/logo-wordmark.png"
+          alt="Mattos &amp; Vargas Turismo"
+        />
         <nav className="footer-nav">
           <Link to="/#experiencias">Experiências</Link>
           <Link to="/#sobre">Quem somos</Link>

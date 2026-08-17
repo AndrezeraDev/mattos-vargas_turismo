@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   FiGlobe,
@@ -85,7 +86,26 @@ const item = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.2, 0.8, 0.2, 1] } },
 };
 
+/* Teste: o avatar alterna entre a logo completa e o chapéu a cada 10s */
+const AVATARS = [
+  { src: '/assets/logo-mattos-vargas.png', alt: 'Logo Mattos & Vargas Turismo' },
+  { src: '/assets/logo-hat.png', alt: 'Chapéu Mattos & Vargas Turismo' },
+];
+const AVATAR_INTERVAL = 10000;
+
 export default function LinksPage() {
+  const [avatarIndex, setAvatarIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setAvatarIndex((i) => (i + 1) % AVATARS.length),
+      AVATAR_INTERVAL
+    );
+    return () => clearInterval(id);
+  }, []);
+
+  const avatar = AVATARS[avatarIndex];
+
   return (
     <div className="links-page">
       <div className="links-bg" aria-hidden="true" />
@@ -96,10 +116,17 @@ export default function LinksPage() {
         animate="visible"
       >
         <motion.div className="links-avatar" variants={item}>
-          <img
-            src="/assets/logo-mattos-vargas.png"
-            alt="Logo Mattos & Vargas Turismo"
-          />
+          <AnimatePresence>
+            <motion.img
+              key={avatar.src}
+              src={avatar.src}
+              alt={avatar.alt}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6, ease: 'easeInOut' }}
+            />
+          </AnimatePresence>
         </motion.div>
         <motion.h1 variants={item}>Mattos &amp; Vargas Turismo</motion.h1>
         <motion.p className="links-bio" variants={item}>

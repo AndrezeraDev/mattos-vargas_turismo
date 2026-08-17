@@ -26,6 +26,9 @@
 }
 
 .nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.3rem;
   font-weight: 700;
@@ -34,7 +37,16 @@
   transition: color 0.35s ease;
 }
 
-.nav-brand span {
+/* Chapéu da marca: selo arredondado que funciona no navbar claro e no escuro */
+.nav-logo {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.nav-brand-text span {
   color: var(--wine);
 }
 
@@ -142,5 +154,17 @@
   }
   .nav-burger {
     display: flex;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-brand {
+    gap: 8px;
+    font-size: 1.15rem;
+  }
+  .nav-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
   }
 }

@@ -35,20 +35,23 @@
 }
 
 .links-avatar {
+  position: relative;
   width: 128px;
   height: 128px;
   margin: 0 auto 20px;
   border-radius: 50%;
   overflow: hidden;
-  background: #0d0407;
+  background: #4a041f;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.25);
 }
 
+/* Absoluto para as duas versões da logo cruzarem no mesmo lugar durante a troca */
 .links-avatar img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.12);
 }
 
 .links-card h1 {
