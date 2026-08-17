@@ -1,16 +1,21 @@
 .showcase {
   position: relative;
-  height: 320vh;
   background: var(--night);
 }
 
-.showcase-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+/* Carrossel de verdade: altura normal, sem prender a rolagem da página */
+.showcase-stage {
+  position: relative;
+  height: min(100vh, 780px);
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.showcase-stage:active {
+  cursor: grabbing;
 }
 
 .showcase-img {
@@ -69,21 +74,69 @@
   margin-top: 22px;
 }
 
+.showcase-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+/* Setas explícitas: quem não descobre o arrasto ainda tem por onde navegar */
+.showcase-arrow {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.showcase-arrow:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: transparent;
+  color: var(--night);
+}
+
 .showcase-progress {
   display: flex;
   gap: 8px;
-  margin-top: 40px;
 }
 
-.showcase-progress span {
+.showcase-progress button {
   width: 28px;
   height: 3px;
+  padding: 0;
+  border: none;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
   transition: background 0.4s ease, width 0.4s ease;
 }
 
-.showcase-progress span.is-on {
+.showcase-progress button.is-on {
   width: 52px;
   background: #fff;
+}
+
+.showcase-hint {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 640px) {
+  .showcase-hint {
+    display: none;
+  }
 }

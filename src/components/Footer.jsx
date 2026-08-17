@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="wrap-wide footer-inner">
         <img
           className="footer-logo"
-          src="/assets/logo-wordmark.png"
+          src="/assets/logo-wordmark-transparente.png"
           alt="Mattos &amp; Vargas Turismo"
         />
         <nav className="footer-nav">

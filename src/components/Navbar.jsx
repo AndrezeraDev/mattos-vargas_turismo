@@ -29,7 +29,12 @@ export default function Navbar() {
     <header className={`nav ${solid ? 'is-solid' : ''} ${open ? 'is-open' : ''}`}>
       <div className="nav-inner">
         <Link to="/" className="nav-brand" onClick={() => setOpen(false)}>
-          <img className="nav-logo" src="/assets/logo-hat.png" alt="" aria-hidden="true" />
+          <img
+            className="nav-logo"
+            src="/assets/logo-hat-transparente.png"
+            alt=""
+            aria-hidden="true"
+          />
           <span className="nav-brand-text">
             Mattos&nbsp;<span>&amp;</span>&nbsp;Vargas
           </span>

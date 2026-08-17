@@ -37,13 +37,13 @@
   transition: color 0.35s ease;
 }
 
-/* Chapéu da marca: selo arredondado que funciona no navbar claro e no escuro */
+/* Chapéu recortado (PNG com fundo transparente): assenta direto sobre o
+   navbar, tanto no estado sólido quanto sobre o hero */
 .nav-logo {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   flex: none;
-  border-radius: 10px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .nav-brand-text span {
@@ -163,8 +163,7 @@
     font-size: 1.15rem;
   }
   .nav-logo {
-    width: 30px;
-    height: 30px;
-    border-radius: 9px;
+    width: 34px;
+    height: 34px;
   }
 }
