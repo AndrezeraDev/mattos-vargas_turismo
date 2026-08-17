@@ -69,8 +69,8 @@ export default function Hosts() {
           transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1] }}
         >
           <img
-            src="/assets/galeria/espumante.jpg"
-            alt="Taça de espumante em vinícola da Serra Gaúcha"
+            src="/assets/don-giovanni.jpg"
+            alt="Garrafa de Don Giovanni Cabernet Franc sobre rolhas, com taça servida"
             loading="lazy"
           />
         </motion.div>
