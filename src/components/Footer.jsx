@@ -15,6 +15,7 @@ export default function Footer() {
           <Link to="/#experiencias">Experiências</Link>
           <Link to="/#sobre">Nosso jeito</Link>
           <Link to="/#galeria">Galeria</Link>
+          <Link to="/blog">Sobre vinhos</Link>
           <Link to="/#contato">Contato</Link>
           <Link to="/links">Links</Link>
         </nav>

@@ -21,6 +21,9 @@ import Footer from './components/Footer';
 import WhatsappFloat from './components/WhatsappFloat';
 import TourPage from './components/TourPage';
 import LinksPage from './components/Links';
+import Blog from './components/Blog';
+import BlogPost from './components/BlogPost';
+import BlogAdmin from './components/BlogAdmin';
 import BackFloat from './components/BackFloat';
 import './App.css';
 
@@ -81,6 +84,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/passeio/:slug" element={<TourPage />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/admin" element={<BlogAdmin />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/links" element={<LinksPage />} />
         </Routes>
       </Chrome>

@@ -1,0 +1,386 @@
+.admin {
+  background: var(--paper-dim);
+  min-height: 100vh;
+  padding: 130px 0 90px;
+}
+
+.admin-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+.admin-kicker {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 10px;
+}
+
+.admin-head-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--wine);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, opacity 0.2s ease;
+}
+
+.admin-btn:hover {
+  background: var(--wine-deep);
+}
+
+.admin-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.admin-btn.ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.admin-btn.ghost:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.admin-warning {
+  background: #fff6e5;
+  border: 1px solid #f0d9a8;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #6b4a12;
+  margin-bottom: 22px;
+}
+
+.admin-notice {
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+
+.admin-notice.is-ok {
+  background: #e6f6ec;
+  color: #1c6b3a;
+}
+
+.admin-notice.is-error {
+  background: #fdeaea;
+  color: #99231f;
+}
+
+/* ---- formulário ---- */
+.admin-form {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: clamp(22px, 3vw, 34px);
+  margin-bottom: 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-form-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-form-head h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.admin-form label,
+.admin-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.admin-form input[type='text'],
+.admin-form input[type='date'],
+.admin-form input:not([type]),
+.admin-form textarea {
+  width: 100%;
+  margin-top: 7px;
+  padding: 11px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.95rem;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink);
+  background: #fff;
+  resize: vertical;
+}
+
+.admin-form textarea {
+  line-height: 1.6;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus {
+  outline: none;
+  border-color: var(--wine);
+}
+
+.admin-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.admin-row > label {
+  flex: 1 1 160px;
+}
+
+.admin-check {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.admin-check input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--wine);
+}
+
+/* ---- fotos ---- */
+.admin-media {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  padding-top: 6px;
+}
+
+.admin-media input[type='file'] {
+  margin-top: 10px;
+  font-size: 0.82rem;
+}
+
+.admin-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.admin-thumb {
+  position: relative;
+  width: 96px;
+  height: 72px;
+  border-radius: 9px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.admin-thumbs .admin-thumb {
+  margin-top: 0;
+}
+
+.admin-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-thumb button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.admin-form-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
+.admin-icon {
+  border: none;
+  background: none;
+  color: var(--ink-soft);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ---- lista ---- */
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+
+.admin-item-thumb {
+  width: 78px;
+  height: 58px;
+  flex: none;
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--paper-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  color: var(--ink-soft);
+}
+
+.admin-item-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-item-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-item-copy h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.admin-item-meta {
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.tag.on {
+  background: #e6f6ec;
+  color: #1c6b3a;
+}
+
+.tag.off {
+  background: rgba(0, 0, 0, 0.07);
+  color: var(--ink-soft);
+}
+
+.admin-item-actions {
+  display: flex;
+  gap: 6px;
+  flex: none;
+}
+
+.admin-item-actions button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.admin-item-actions button:hover {
+  background: var(--ink);
+  color: #fff;
+  border-color: transparent;
+}
+
+.admin-item-actions button.danger:hover {
+  background: #b02a25;
+  border-color: transparent;
+}
+
+.admin-empty {
+  color: var(--ink-soft);
+  padding: 20px 0;
+}
+
+.admin-reset {
+  margin-top: 30px;
+  border: none;
+  background: none;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.admin-reset:hover {
+  color: var(--wine);
+}
+
+@media (max-width: 640px) {
+  .admin-item {
+    flex-wrap: wrap;
+  }
+  .admin-item-copy {
+    flex: 1 1 100%;
+    order: 3;
+  }
+}

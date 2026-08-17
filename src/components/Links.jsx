@@ -39,7 +39,7 @@ const links = [
     icon: <FiBookOpen />,
     label: 'Sobre vinhos',
     hint: 'Nosso blog sobre os rótulos e vinícolas da região',
-    soon: true,
+    to: '/blog',
   },
   {
     icon: <FiTag />,

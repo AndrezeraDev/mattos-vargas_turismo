@@ -7,6 +7,7 @@ const links = [
   { to: '/#experiencias', label: 'Experiências' },
   { to: '/#sobre', label: 'Nosso jeito' },
   { to: '/#galeria', label: 'Galeria' },
+  { to: '/blog', label: 'Sobre vinhos' },
   { to: '/links', label: 'Links' },
 ];
 
