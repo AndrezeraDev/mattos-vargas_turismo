@@ -30,7 +30,6 @@ export default function Navbar() {
       <div className="nav-inner">
         <Link to="/" className="nav-brand" onClick={() => setOpen(false)}>
           <img
-            id="nav-hat"
             className="nav-logo"
             src="/assets/logo-hat-transparente.png"
             alt=""

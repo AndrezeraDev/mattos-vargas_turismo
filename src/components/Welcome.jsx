@@ -49,7 +49,7 @@ export default function Welcome() {
         >
           <p className="welcome-kicker">Quem vai te receber</p>
           <h2 className="display welcome-title">
-            Sou o <span id="hat-stop-m">M</span>attos.
+            Sou o Mattos.
             <br />
             <em>Especialista em bem receber</em> há mais de 20 anos.
           </h2>
