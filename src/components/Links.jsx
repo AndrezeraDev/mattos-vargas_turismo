@@ -3,9 +3,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   FiGlobe,
-  FiInfo,
   FiMapPin,
-  FiShoppingBag,
+  FiBookOpen,
+  FiTag,
   FiCompass,
   FiStar,
 } from 'react-icons/fi';
@@ -17,64 +17,106 @@ import {
   WHATSAPP_NUMBER,
   buildWhatsappLink,
 } from '../data/tours';
-import { GOOGLE_REVIEWS_URL } from '../data/reviews';
 import './Links.css';
 
+/* `soon: true` = destino ainda não existe; o card fica visível mas inerte */
 const links = [
   {
     icon: <FaWhatsapp />,
-    label: 'Fale conosco no WhatsApp',
-    hint: 'Atendimento direto com Sergio e Maria Alice',
+    label: 'Falar com o Mattos',
+    hint: 'Me conte seu período, voo e tamanho da família',
     href: buildWhatsappLink('Olá! Vim pelo site e quero saber mais sobre as experiências na Serra.'),
     external: true,
     featured: true,
   },
   {
+    icon: <FiCompass />,
+    label: 'Turismo e passeios',
+    hint: 'Vale dos Vinhedos, Gramado e Canela, Maria Fumaça',
+    soon: true,
+  },
+  {
+    icon: <FiBookOpen />,
+    label: 'Sobre vinhos',
+    hint: 'Nosso blog sobre os rótulos e vinícolas da região',
+    soon: true,
+  },
+  {
+    icon: <FiTag />,
+    label: 'Ingressos',
+    hint: 'Parques e atrações de Gramado e Canela',
+    soon: true,
+  },
+  {
+    icon: <FiStar />,
+    label: 'Avaliar no Google',
+    hint: 'Conte como foi a sua experiência com a gente',
+    soon: true,
+  },
+  {
     icon: <FaInstagram />,
     label: 'Nosso Instagram',
-    hint: 'Visite e surpreenda-se',
+    hint: 'O dia a dia dos passeios na Serra',
     href: INSTAGRAM_URL,
     external: true,
   },
   {
     icon: <FiGlobe />,
     label: 'Nosso site',
-    hint: 'Conheça todas as experiências',
+    hint: 'Todas as experiências em um só lugar',
     to: '/',
   },
   {
-    icon: <FiCompass />,
-    label: 'Passeios e experiências',
-    hint: 'Maria Fumaça, vinícolas, Parque da Ovelha e mais',
-    to: '/#servicos',
-  },
-  {
-    icon: <FiShoppingBag />,
-    label: 'Rota Boas Compras na Serra',
-    hint: 'Couro, malhas e calçados com vantagens exclusivas',
-    to: '/passeio/rota-boas-compras',
-  },
-  {
-    icon: <FiStar />,
-    label: 'Avaliações no Google',
-    hint: 'Veja o que nossos viajantes dizem',
-    href: GOOGLE_REVIEWS_URL,
-    external: true,
-  },
-  {
-    icon: <FiInfo />,
-    label: 'Sobre nós',
-    hint: 'Especialistas em bem receber',
-    to: '/#sobre',
-  },
-  {
     icon: <FiMapPin />,
-    label: 'Endereço',
+    label: 'Onde estamos',
     hint: ADDRESS,
     href: MAPS_URL,
     external: true,
   },
 ];
+
+function LinkCard({ icon, label, hint, to, href, external, featured, soon }) {
+  const className = `link-btn${featured ? ' featured' : ''}${soon ? ' is-soon' : ''}`;
+  const inner = (
+    <>
+      <span className="link-icon">{icon}</span>
+      <span className="link-text">
+        <strong>{label}</strong>
+        <small>{hint}</small>
+      </span>
+      <span className="link-cue" aria-hidden="true">
+        {soon ? 'em breve' : '→'}
+      </span>
+    </>
+  );
+
+  if (soon) {
+    return (
+      <div className={className} aria-disabled="true">
+        {inner}
+      </div>
+    );
+  }
+
+  if (to) {
+    return (
+      <Link to={to} className={className}>
+        {inner}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noreferrer' : undefined}
+      className={className}
+    >
+      {inner}
+    </a>
+  );
+}
 
 const container = {
   hidden: {},
@@ -130,40 +172,17 @@ export default function LinksPage() {
         </motion.div>
         <motion.h1 variants={item}>Mattos &amp; Vargas Turismo</motion.h1>
         <motion.p className="links-bio" variants={item}>
-          🍁 Especialistas em Turismo de Experiências na Serra Gaúcha.
-          Receptivo, passeios, ingressos, aéreos e hospedagem — indicados
-          pelos melhores hotéis, com mais de 10 mil clientes atendidos.
+          Especialistas em bem receber e em criar experiências autênticas de
+          enoturismo na Serra Gaúcha. Só vinícolas e rótulos brasileiros, da
+          nossa região — com curadoria, conforto e atenção aos detalhes.
         </motion.p>
 
         <div className="links-list">
-          {links.map((l) =>
-            l.to ? (
-              <motion.div key={l.label} variants={item}>
-                <Link to={l.to} className={`link-btn ${l.featured ? 'featured' : ''}`}>
-                  <span className="link-icon">{l.icon}</span>
-                  <span className="link-text">
-                    <strong>{l.label}</strong>
-                    <small>{l.hint}</small>
-                  </span>
-                </Link>
-              </motion.div>
-            ) : (
-              <motion.div key={l.label} variants={item}>
-                <a
-                  href={l.href}
-                  target={l.external ? '_blank' : undefined}
-                  rel={l.external ? 'noreferrer' : undefined}
-                  className={`link-btn ${l.featured ? 'featured' : ''}`}
-                >
-                  <span className="link-icon">{l.icon}</span>
-                  <span className="link-text">
-                    <strong>{l.label}</strong>
-                    <small>{l.hint}</small>
-                  </span>
-                </a>
-              </motion.div>
-            )
-          )}
+          {links.map((l) => (
+            <motion.div key={l.label} variants={item}>
+              <LinkCard {...l} />
+            </motion.div>
+          ))}
         </div>
 
         <motion.div className="links-social" variants={item}>

@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Welcome from './components/Welcome';
 import Manifesto from './components/Manifesto';
 import Showcase from './components/Showcase';
 import BentoGrid from './components/BentoGrid';
@@ -27,6 +28,7 @@ function HomePage() {
   return (
     <main>
       <Hero />
+      <Welcome />
       <Manifesto />
       <Showcase />
       <BentoGrid />

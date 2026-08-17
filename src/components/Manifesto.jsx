@@ -4,7 +4,7 @@ import GrapeSVG from './GrapeSVG';
 import './Manifesto.css';
 
 const TEXT =
-  'Você sabia que podemos tornar os seus dias ainda mais felizes? Somos Sergio Mattos e Maria Alice — um Guia de Turismo e uma Turismóloga, especialistas em bem receber. Receptivo, passeios, ingressos, aéreos e hospedagem: tudo pensado para a sua família, do desembarque ao retorno.';
+  'Somos especialistas em bem receber e em criar experiências autênticas de enoturismo na Serra Gaúcha. Nosso propósito é conectar pessoas às melhores vinícolas, sabores e histórias da região, com curadoria, conforto e sensibilidade aos detalhes. Mais do que visitas, entregamos vivências que vão além da taça: encontros verdadeiros, memórias afetivas e jornadas pensadas para marcar. Aqui, o vinho é experiência e o acolhimento é essência.';
 
 function Word({ children, progress, range }) {
   const opacity = useTransform(progress, range, [0.14, 1]);

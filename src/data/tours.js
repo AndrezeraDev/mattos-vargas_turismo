@@ -11,7 +11,7 @@ export const buildWhatsappLink = (text) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
 export const buildInterestMessage = (tour) =>
-  `Olá, Sergio e Maria Alice! Estava vendo o site e tenho interesse na experiência "${tour}".`;
+  `Olá, Mattos! Estava vendo o site e tenho interesse na experiência "${tour}".`;
 
 export const buildBookingMessage = (tour, people) =>
   `Olá! Quero reservar a experiência "${tour}" para ${people} ${
@@ -101,14 +101,15 @@ export const tours = [
     ],
     longDescription: [
       'Embarque na locomotiva centenária entre Bento Gonçalves, Garibaldi e Carlos Barbosa, com shows folclóricos italianos, gaúchos e alemães animando os vagões, degustação de espumante e suco de uva a bordo.',
-      'Antes ou depois do trem, seguimos em roteiro privativo pelas vinícolas do Vale dos Vinhedos, com degustações escolhidas a dedo para o seu grupo. Sem pressa de excursão: o dia é seu.',
+      'No atendimento privativo, a família faz um roteiro exclusivo e aproveita tudo no seu tempo e do seu jeito — dá até para conhecer dois roteiros no mesmo dia. É o formato que mais surpreende: a maioria dos nossos clientes conta que valeu investir um pouco mais por uma experiência só sua.',
+      'Já no atendimento coletivo, o passeio é em grupo, com roteiro definido e tudo incluso: ingressos, degustações, ingresso do trem e almoço em cantina italiana. Como o roteiro é fixo, há algumas paradas pré-determinadas.',
     ],
     highlights: [
-      'Passeio completo de Maria Fumaça',
-      'Shows folclóricos a bordo',
-      'Visitas privativas a vinícolas do Vale',
-      'Degustações de vinhos e espumantes',
-      'Transporte privativo durante todo o dia',
+      'Passeio completo de Maria Fumaça, com shows folclóricos a bordo',
+      'Privativo: roteiro exclusivo, no seu tempo e do seu jeito',
+      'Privativo: possibilidade de dois roteiros no mesmo dia',
+      'Coletivo: tudo incluso, com almoço em cantina italiana',
+      'Visitas e degustações em vinícolas do Vale',
     ],
   },
   {
@@ -185,22 +186,48 @@ export const tours = [
     title: 'Vale dos Vinhedos',
     tag: 'Cenário dos sonhos',
     description:
-      'Percorra a região vinícola mais famosa do Brasil: paisagens de parreirais a perder de vista, vinícolas charmosas e degustações memoráveis.',
+      'Um cantinho especial da Itália em Bento Gonçalves: Casa Valduga, Alma Única e Cave de Pedra, com histórias, curiosidades e belas fotos pelo caminho.',
     image: '/assets/vale-dos-vinhedos.jpg',
     meta: [
-      { icon: 'clock', label: '6 horas' },
-      { icon: 'map', label: 'Estrada do vinho' },
+      { icon: 'clock', label: 'Das 8h às 20h' },
+      { icon: 'users', label: 'Guia e motorista' },
     ],
     longDescription: [
-      'O Vale dos Vinhedos é um dos destinos mais encantadores do Brasil: colinas cobertas de parreirais, capitéis históricos e vinícolas que unem tradição familiar e arquitetura premiada.',
-      'Montamos o roteiro conforme a estação — da vindima no verão aos tons dourados do outono — com paradas para degustação, fotos e compras direto do produtor.',
+      'O Vale dos Vinhedos é um cantinho especial da Itália em Bento Gonçalves: colinas cobertas de parreirais, capitéis históricos e vinícolas que unem tradição familiar e arquitetura premiada. São histórias, curiosidades e belas fotos ao longo de todo o percurso.',
+      'O roteiro passa pela Casa Valduga — visita de 10h30, com opção de almoço na vinícola e taça de cristal de brinde —, pela Alma Única e pela Cave de Pedra. Você fica com guia e motorista à disposição no período das 8h às 20h, no seu ritmo.',
+      'As degustações, ingressos e almoços são cobrados à parte, definidos junto com você conforme o que a família quiser conhecer.',
     ],
     highlights: [
-      'Paisagens de parreirais a perder de vista',
-      'Degustações em vinícolas selecionadas',
-      'Roteiro ajustado à estação do ano',
-      'Compras direto do produtor',
-      'Transporte privativo com guia local',
+      'Casa Valduga (10h30), com taça de cristal de brinde',
+      'Opção de almoço dentro da vinícola',
+      'Vinícola Alma Única e Vinícola Cave de Pedra',
+      'Guia e motorista à disposição das 8h às 20h',
+      'Degustações, ingressos e almoços à parte',
+    ],
+  },
+  {
+    slug: 'gramado-e-canela',
+    title: 'Passeio em Gramado e Canela',
+    tag: 'Você monta o roteiro',
+    description:
+      'Os principais pontos das duas cidades entre 9h e 18h, com histórias, curiosidades, belas fotos e boa gastronomia. Nós sugerimos, vocês decidem.',
+    image: '/assets/gramado-centro.jpg',
+    meta: [
+      { icon: 'clock', label: 'Das 9h às 18h' },
+      { icon: 'map', label: 'Gramado e Canela' },
+    ],
+    longDescription: [
+      'Com saída sugerida entre 9h e 18h, visitamos os principais pontos de Gramado e Canela — sempre com histórias, curiosidades, belas fotos e boa gastronomia pelo caminho.',
+      'Os locais são apenas sugeridos: quem decide o roteiro é você. Entre as opções mais pedidas estão o Le Jardin (parque de lavandas), o Lago Negro e o pórtico bávaro, a fábrica de chocolate, a Catedral de Pedra, a Cascata ou o Sky Glass e o Castelinho do Caracol.',
+      'O tour tradicional acontece em Mini Van Spin, com água gelada à disposição, guia de turismo e roteiro exclusivo para o seu grupo.',
+    ],
+    highlights: [
+      'Le Jardin, parque de lavandas',
+      'Lago Negro e pórtico bávaro',
+      'Fábrica de chocolate e Catedral de Pedra',
+      'Cascata do Caracol ou Sky Glass',
+      'Castelinho do Caracol',
+      'Mini Van Spin com água gelada e guia de turismo',
     ],
   },
   {

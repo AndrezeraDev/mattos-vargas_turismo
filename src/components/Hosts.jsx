@@ -21,13 +21,14 @@ export default function Hosts() {
           </h2>
           <p className="hosts-text">
             Um Guia de Turismo e uma Turismóloga que fizeram da Serra Gaúcha a
-            própria casa — e da sua visita, um assunto pessoal. Hoje são
-            indicados pelos melhores hotéis da região.
+            própria casa — e da sua visita, um assunto pessoal. São mais de 20
+            anos de estrada, hoje indicados pelos melhores hotéis da região.
           </p>
           <p className="hosts-text">
-            Envie seus horários de chegada e retorno e o que despertou seu
-            interesse. Se ainda não fechou hospedagem, temos algo incrível
-            para te oferecer.
+            Trabalhamos só com vinícolas e rótulos brasileiros, da nossa
+            região. Envie seu período, os horários de voo e o tamanho da
+            família. Se ainda não fechou hospedagem, temos algo incrível para
+            te oferecer.
           </p>
           <a
             href={buildWhatsappLink('Olá, Sergio e Maria Alice! Quero começar a planejar minha viagem.')}
