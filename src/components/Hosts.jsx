@@ -1,6 +1,15 @@
 import { motion } from 'framer-motion';
+import { FiCheck } from 'react-icons/fi';
 import { buildWhatsappLink } from '../data/tours';
 import './Hosts.css';
+
+const DIFFERENTIALS = [
+  'Atendimento privado e personalizado, respeitando o ritmo de cada visitante',
+  'Vinícolas familiares e experiências autênticas, longe dos roteiros convencionais',
+  'Tempo para conversar com produtores, conhecer histórias e entender a cultura do vinho',
+  'Roteiros cuidadosamente planejados, com conforto, tranquilidade e sem pressa',
+  'Curadoria para quem quer degustar grandes rótulos e viver experiências que marcam',
+];
 
 export default function Hosts() {
   return (
@@ -13,30 +22,42 @@ export default function Hosts() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.75, ease: [0.2, 0.8, 0.2, 1] }}
         >
-          <p className="hosts-kicker">Quem recebe você</p>
+          <p className="hosts-kicker">Por que com a gente</p>
           <h2 className="headline">
-            Sergio &amp; Maria Alice.
+            O enoturismo vai muito
             <br />
-            Especialistas em bem receber.
+            além de visitar vinícolas.
           </h2>
           <p className="hosts-text">
-            Um Guia de Turismo e uma Turismóloga que fizeram da Serra Gaúcha a
-            própria casa — e da sua visita, um assunto pessoal. São mais de 20
-            anos de estrada, hoje indicados pelos melhores hotéis da região.
+            Para quem é apaixonado por vinho, o turismo de massa não dá conta:
+            horários apertados, grupos grandes e experiências padronizadas.
+            Aqui, cada roteiro vira um momento exclusivo.
           </p>
-          <p className="hosts-text">
-            Trabalhamos só com vinícolas e rótulos brasileiros, da nossa
-            região. Envie seu período, os horários de voo e o tamanho da
-            família. Se ainda não fechou hospedagem, temos algo incrível para
-            te oferecer.
+
+          <ul className="hosts-list">
+            {DIFFERENTIALS.map((d) => (
+              <li key={d}>
+                <FiCheck aria-hidden="true" />
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="hosts-quote">
+            Porque o melhor vinho não é apenas o que está na taça, mas a
+            história que você leva para casa.
           </p>
+
           <a
-            href={buildWhatsappLink('Olá, Sergio e Maria Alice! Quero começar a planejar minha viagem.')}
+            href={buildWhatsappLink(
+              'Olá! Quero descobrir a Serra Gaúcha de um jeito diferente. Podemos conversar?'
+            )}
             target="_blank"
             rel="noreferrer"
             className="text-link"
           >
-            Começar a conversa <span className="arrow">→</span>
+            Descobrir a Serra de um jeito diferente{' '}
+            <span className="arrow">→</span>
           </a>
         </motion.div>
 
@@ -48,8 +69,8 @@ export default function Hosts() {
           transition={{ duration: 0.9, ease: [0.2, 0.8, 0.2, 1] }}
         >
           <img
-            src="/assets/galeria/casa-da-ovelha.jpg"
-            alt="Turismo rural na Serra Gaúcha"
+            src="/assets/galeria/espumante.jpg"
+            alt="Taça de espumante em vinícola da Serra Gaúcha"
             loading="lazy"
           />
         </motion.div>

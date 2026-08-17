@@ -5,7 +5,7 @@ import './Navbar.css';
 
 const links = [
   { to: '/#experiencias', label: 'Experiências' },
-  { to: '/#sobre', label: 'Quem somos' },
+  { to: '/#sobre', label: 'Nosso jeito' },
   { to: '/#galeria', label: 'Galeria' },
   { to: '/links', label: 'Links' },
 ];

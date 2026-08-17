@@ -13,7 +13,7 @@ export default function Footer() {
         />
         <nav className="footer-nav">
           <Link to="/#experiencias">Experiências</Link>
-          <Link to="/#sobre">Quem somos</Link>
+          <Link to="/#sobre">Nosso jeito</Link>
           <Link to="/#galeria">Galeria</Link>
           <Link to="/#contato">Contato</Link>
           <Link to="/links">Links</Link>
