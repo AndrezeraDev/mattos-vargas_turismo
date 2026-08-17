@@ -1,10 +1,33 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { buildWhatsappLink } from '../data/tours';
 import './Hero.css';
 
+/* `hold` = quanto tempo cada foto fica antes de trocar */
+const SLIDES = [
+  {
+    src: '/assets/miolo-vale-dos-vinhedos.jpg',
+    alt: 'Parreirais e a vinícola Miolo no Vale dos Vinhedos',
+    hold: 15000,
+  },
+  {
+    src: '/assets/cascata-caracol.jpg',
+    alt: 'Cascata do Caracol vista do alto, Canela',
+    hold: 8000,
+  },
+];
+
 export default function Hero() {
   const ref = useRef(null);
+  const [slide, setSlide] = useState(0);
+
+  useEffect(() => {
+    const id = setTimeout(
+      () => setSlide((i) => (i + 1) % SLIDES.length),
+      SLIDES[slide].hold
+    );
+    return () => clearTimeout(id);
+  }, [slide]);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
@@ -18,12 +41,19 @@ export default function Hero() {
   return (
     <section className="hero" ref={ref} id="top">
       <motion.div className="hero-media" style={{ scale: imgScale, y: imgY }}>
-        <img
-          src="/assets/cascata-caracol.jpg"
-          alt="Cascata do Caracol vista do alto, Canela"
-          fetchpriority="high"
-          decoding="async"
-        />
+        <AnimatePresence initial={false}>
+          <motion.img
+            key={SLIDES[slide].src}
+            src={SLIDES[slide].src}
+            alt={SLIDES[slide].alt}
+            fetchpriority={slide === 0 ? 'high' : 'auto'}
+            decoding="async"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.4, ease: 'easeInOut' }}
+          />
+        </AnimatePresence>
       </motion.div>
       <div className="hero-veil" />
 

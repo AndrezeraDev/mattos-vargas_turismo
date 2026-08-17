@@ -14,7 +14,10 @@
   will-change: transform;
 }
 
+/* Absoluto para as fotos se cruzarem no mesmo lugar durante a troca */
 .hero-media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
