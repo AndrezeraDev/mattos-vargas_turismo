@@ -8,7 +8,6 @@ import {
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Welcome from './components/Welcome';
-import Manifesto from './components/Manifesto';
 import Showcase from './components/Showcase';
 import Folders from './components/Folders';
 import Stats from './components/Stats';
@@ -33,7 +32,6 @@ function HomePage() {
     <main>
       <Hero />
       <Welcome />
-      <Manifesto />
       <Showcase />
       <Folders />
       <Stats />
