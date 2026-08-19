@@ -44,3 +44,6 @@ export const CATEGORIES = [
     items: [],
   },
 ];
+
+export const findCategoryBySlug = (slug) =>
+  CATEGORIES.find((c) => c.slug === slug);
