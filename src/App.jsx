@@ -10,7 +10,7 @@ import Hero from './components/Hero';
 import Welcome from './components/Welcome';
 import Manifesto from './components/Manifesto';
 import Showcase from './components/Showcase';
-import BentoGrid from './components/BentoGrid';
+import Folders from './components/Folders';
 import Stats from './components/Stats';
 import Hosts from './components/Hosts';
 import GalleryRail from './components/GalleryRail';
@@ -34,7 +34,7 @@ function HomePage() {
       <Welcome />
       <Manifesto />
       <Showcase />
-      <BentoGrid />
+      <Folders />
       <Stats />
       <Hosts />
       <GalleryRail />
