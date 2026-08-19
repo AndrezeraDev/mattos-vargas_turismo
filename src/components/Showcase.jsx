@@ -13,18 +13,18 @@ const features = [
     text: 'O trem centenário pelo Vale dos Vinhedos e as melhores caves — no ritmo do seu grupo, não no da excursão.',
   },
   {
-    slug: 'parque-da-ovelha',
-    image: '/assets/parque-da-ovelha.jpg',
-    kicker: 'Experiência de fazenda',
-    title: 'Uma manhã inteira de vida no campo.',
-    text: 'Cordeirinhos no colo, tosa ao vivo e a rotina real de uma fazenda da Serra. As crianças não vão querer ir embora.',
+    slug: 'vale-dos-vinhedos',
+    image: '/assets/vale-dos-vinhedos.jpg',
+    kicker: 'Um pedaço da Itália',
+    title: 'Casa Valduga, Alma Única e Cave de Pedra.',
+    text: 'Um dia inteiro entre parreirais, com guia e motorista à disposição das 8h às 20h — e taça de cristal de brinde na Valduga.',
   },
   {
-    slug: 'almoco-harmonizado-vinicola',
-    image: '/assets/vinicola-almoco.jpg',
-    kicker: 'Gastronomia',
-    title: 'Almoço harmonizado, taça a taça.',
-    text: 'Menu completo dentro da vinícola, conduzido por sommelier — com traslado privativo para brindar sem preocupação.',
+    slug: 'noite-italiana',
+    image: '/assets/noite-italiana.jpg',
+    kicker: 'Sapore italiano',
+    title: 'Jantar farto, tarantela e vinho colonial.',
+    text: 'Massas frescas, galeto al primo canto e polenta, com show ao vivo e o clima de festa de família que só a Serra tem.',
   },
 ];
 
