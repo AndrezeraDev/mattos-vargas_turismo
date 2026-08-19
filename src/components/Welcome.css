@@ -25,9 +25,9 @@
   z-index: -1;
   background: linear-gradient(
     100deg,
-    rgba(28, 3, 13, 0.94) 0%,
-    rgba(74, 4, 31, 0.82) 42%,
-    rgba(74, 4, 31, 0.42) 100%
+    rgba(58, 1, 25, 0.94) 0%,
+    rgba(75, 2, 31, 0.82) 42%,
+    rgba(75, 2, 31, 0.42) 100%
   );
 }
 
@@ -48,9 +48,9 @@
   aspect-ratio: 9 / 16;
   border-radius: 22px;
   overflow: hidden;
-  background: #1c030d;
+  background: var(--wine-950);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(240, 217, 168, 0.28);
+  border: 1px solid rgba(239, 224, 185, 0.28);
 }
 
 .welcome-video video {
@@ -82,13 +82,14 @@
 
 .welcome-sound:hover {
   background: rgba(0, 0, 0, 0.65);
-  border-color: #f0d9a8;
+  border-color: var(--panama);
 }
 
 .welcome-kicker {
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.18em;
+  font-family: var(--font-label);
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.72);
   margin-bottom: 20px;
@@ -101,7 +102,7 @@
 
 .welcome-title em {
   font-style: italic;
-  color: #f0d9a8;
+  color: var(--panama);
 }
 
 .welcome-text {
@@ -129,7 +130,7 @@
 }
 
 .welcome-cta:hover {
-  background: #f0d9a8;
+  background: var(--panama);
   color: var(--wine-deep);
 }
 

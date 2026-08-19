@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Jost:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap');
 
 *,
 *::before,
@@ -9,13 +9,31 @@
 }
 
 :root {
-  --ink: #1d1d1f;
-  --ink-soft: #6e6e73;
+  /* Paleta do kit de marca — extraída da logo */
+  --wine-950: #3a0119;  /* fundo escuro, rodapé, hero */
+  --wine-900: #4b021f;  /* cor de marca principal */
+  --wine-700: #7e1e3e;  /* blocos, hover */
+  --panama: #efe0b9;    /* creme do chapéu — texto e acentos no escuro */
+  --gold: #d4a86a;      /* detalhes, ícones, rótulos */
+  --band: #373833;      /* preto da faixa do chapéu */
+
+  /* Papéis de uso. O fundo é branco, não o creme do kit, a pedido:
+     o creme fica reservado para acentos sobre o vinho. */
+  --ink: var(--band);
+  --ink-soft: #6f6b62;
   --paper: #ffffff;
-  --paper-dim: #f5f5f7;
-  --night: #0a0a0c;
-  --wine: #7d2440;
-  --wine-deep: #5a1a2f;
+  --paper-dim: #f8f5f0;
+  --night: var(--wine-950);
+  --hairline: rgba(55, 56, 51, 0.12);
+
+  /* Nomes antigos, mantidos para os componentes que já os usam */
+  --wine: var(--wine-900);
+  --wine-deep: var(--wine-950);
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-label: 'Jost', 'Work Sans', sans-serif;
+
   --radius: 28px;
   --max: 1080px;
   --max-wide: 1360px;
@@ -26,7 +44,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   color: var(--ink);
   background: var(--paper);
   line-height: 1.5;
@@ -70,49 +88,72 @@ button {
 .serif,
 .display,
 .headline {
-  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-display);
 }
 
+/* Fraunces tem muito mais peso e altura-x que a serifada anterior:
+   os corpos caem cerca de 20% para o mesmo peso visual */
 .display {
-  font-size: clamp(3.2rem, 8vw, 6.2rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 0.98;
+  font-size: clamp(2.7rem, 6.4vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
 }
 
 .headline {
-  font-size: clamp(2.3rem, 5vw, 3.9rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.04;
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
 }
 
 .subhead {
-  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
-  font-weight: 500;
+  font-size: clamp(1.02rem, 1.5vw, 1.22rem);
+  font-weight: 400;
   color: var(--ink-soft);
-  letter-spacing: -0.01em;
-  line-height: 1.45;
+  line-height: 1.55;
+}
+
+/* Eyebrow em caixa alta, o mesmo tratamento do tagline da logo */
+.label {
+  font-family: var(--font-label);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--wine-700);
 }
 
 /* Botões */
+/* Caixa alta com tracking, como na prévia do kit de marca */
 .pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
+  gap: 9px;
+  padding: 15px 30px;
   border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   background: var(--wine);
   color: #fff;
   transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.25s ease;
 }
 
 .pill:hover {
-  background: var(--wine-deep);
+  background: var(--wine-700);
   transform: scale(1.03);
+}
+
+/* Para rótulos que não sobrevivem ao caixa alta, como um @ do Instagram */
+.pill.sentence {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .pill.ghost {
@@ -125,14 +166,28 @@ button {
   background: rgba(255, 255, 255, 0.24);
 }
 
+/* A curva da aba do chapéu vira o sublinhado que cresce no hover —
+   o elemento de assinatura do kit, usado com parcimônia */
 .text-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--font-label);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--wine);
-  letter-spacing: -0.01em;
+  padding-bottom: 9px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M0 6 Q50 0 100 6' fill='none' stroke='%23d4a86a' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 6px;
+  transition: background-size 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.text-link:hover {
+  background-size: 100% 6px;
 }
 
 .text-link .arrow {
@@ -144,6 +199,6 @@ button {
 }
 
 ::selection {
-  background: rgba(125, 36, 64, 0.9);
+  background: rgba(75, 2, 31, 0.92);
   color: #fff;
 }

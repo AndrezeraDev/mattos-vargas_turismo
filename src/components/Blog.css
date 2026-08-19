@@ -13,6 +13,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.16em;
+  font-family: var(--font-label);
   text-transform: uppercase;
   color: var(--wine);
   margin-bottom: 16px;
@@ -37,6 +38,7 @@
 .blog-meta {
   font-size: 0.76rem;
   letter-spacing: 0.1em;
+  font-family: var(--font-label);
   text-transform: uppercase;
   color: var(--ink-soft);
   margin-bottom: 12px;
@@ -120,7 +122,7 @@
 }
 
 .blog-card h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.42rem;
   font-weight: 600;
   line-height: 1.2;
@@ -202,7 +204,7 @@
 }
 
 .post-cta p {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.35rem;
 }
 

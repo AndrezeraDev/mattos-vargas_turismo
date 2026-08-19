@@ -27,9 +27,9 @@
   z-index: -1;
   background: linear-gradient(
     to top,
-    rgba(28, 3, 13, 0.92) 0%,
-    rgba(74, 4, 31, 0.72) 55%,
-    rgba(28, 3, 13, 0.55) 100%
+    rgba(58, 1, 25, 0.92) 0%,
+    rgba(75, 2, 31, 0.72) 55%,
+    rgba(58, 1, 25, 0.55) 100%
   );
 }
 
@@ -42,7 +42,7 @@
 }
 
 .cat-back:hover {
-  color: #f0d9a8;
+  color: var(--panama);
 }
 
 .cat-hero-copy .display {
@@ -119,7 +119,7 @@
 
 .cat-item-copy strong {
   display: block;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.15;

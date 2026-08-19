@@ -10,6 +10,7 @@ import Hero from './components/Hero';
 import Welcome from './components/Welcome';
 import Showcase from './components/Showcase';
 import Folders from './components/Folders';
+import BrimRule from './components/BrimRule';
 import Stats from './components/Stats';
 import Hosts from './components/Hosts';
 import GalleryRail from './components/GalleryRail';
@@ -34,6 +35,7 @@ function HomePage() {
       <Welcome />
       <Showcase />
       <Folders />
+      <BrimRule />
       <Stats />
       <Hosts />
       <GalleryRail />

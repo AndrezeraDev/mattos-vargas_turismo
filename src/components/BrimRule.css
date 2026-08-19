@@ -1,0 +1,17 @@
+.brim {
+  background: var(--paper);
+  padding: 8px 0 4px;
+}
+
+.brim svg {
+  display: block;
+  width: min(620px, 62%);
+  height: 40px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+/* var() não resolve em atributo de SVG — a cor vem daqui */
+.brim path {
+  stroke: var(--gold);
+}

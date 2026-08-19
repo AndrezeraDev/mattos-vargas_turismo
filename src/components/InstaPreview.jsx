@@ -30,7 +30,7 @@ export default function InstaPreview() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noreferrer"
-            className="pill insta-follow"
+            className="pill sentence insta-follow"
           >
             <span className="insta-follow-full">Seguir {INSTAGRAM_HANDLE}</span>
             <span className="insta-follow-short">Seguir no Instagram</span>

@@ -1,5 +1,5 @@
 .footer {
-  background: #4c131f;
+  background: var(--wine-900);
   color: #fff;
   padding: 48px 0 52px;
 }
@@ -33,7 +33,7 @@
 }
 
 .footer-nav a:hover {
-  color: #f0d9a8;
+  color: var(--panama);
 }
 
 .footer-note {
