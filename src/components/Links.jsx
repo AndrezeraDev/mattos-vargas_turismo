@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { FiGlobe, FiMapPin, FiBookOpen, FiTag, FiStar } from 'react-icons/fi';
 import {
-  FiGlobe,
-  FiMapPin,
-  FiBookOpen,
-  FiTag,
-  FiCompass,
-  FiStar,
-} from 'react-icons/fi';
-import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
+  FaWhatsapp,
+  FaInstagram,
+  FaWineGlassAlt,
+  FaChild,
+  FaUtensils,
+  FaLeaf,
+} from 'react-icons/fa';
 import {
   ADDRESS,
   INSTAGRAM_URL,
@@ -17,7 +17,24 @@ import {
   WHATSAPP_NUMBER,
   buildWhatsappLink,
 } from '../data/tours';
+import { CATEGORIES } from '../data/categories';
 import './Links.css';
+
+/* Ícone por tema. Os quatro saem de CATEGORIES, então mexer nos temas
+   atualiza a /links junto. */
+const CATEGORY_ICONS = {
+  'roteiros-enoturismo': <FaWineGlassAlt />,
+  'passeio-com-criancas': <FaChild />,
+  'jantares-tematicos': <FaUtensils />,
+  'melhor-idade': <FaLeaf />,
+};
+
+const CATEGORY_LINKS = CATEGORIES.map((c) => ({
+  icon: CATEGORY_ICONS[c.slug] ?? <FaWineGlassAlt />,
+  label: c.title,
+  hint: c.hint,
+  to: `/roteiros/${c.slug}`,
+}));
 
 /* `soon: true` = destino ainda não existe; o card fica visível mas inerte */
 const links = [
@@ -29,12 +46,7 @@ const links = [
     external: true,
     featured: true,
   },
-  {
-    icon: <FiCompass />,
-    label: 'Turismo e passeios',
-    hint: 'Vale dos Vinhedos, Gramado e Canela, Maria Fumaça',
-    soon: true,
-  },
+  ...CATEGORY_LINKS,
   {
     icon: <FiBookOpen />,
     label: 'Sobre vinhos',
