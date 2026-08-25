@@ -91,7 +91,7 @@ export default function CategoryPage() {
           transition={{ duration: 0.8, ease: EASE }}
         >
           <Link to="/#experiencias" className="cat-back">
-            ← Todas as pastas
+            ← Todas as experiências
           </Link>
           <h1 className="display">{cat.title}</h1>
           <p className="cat-hero-hint">{cat.hint}</p>

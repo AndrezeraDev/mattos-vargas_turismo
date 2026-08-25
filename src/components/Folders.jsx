@@ -19,7 +19,7 @@ export default function Folders() {
         >
           <h2 className="headline">Por onde você quer começar?</h2>
           <p className="subhead">
-            Cada pasta reúne os roteiros de um tipo de experiência.
+            Escolha o tipo de experiência e veja os roteiros que ele reúne.
           </p>
         </motion.div>
 
@@ -48,7 +48,7 @@ export default function Folders() {
                   <strong>{cat.title}</strong>
                   <small>{cat.hint}</small>
                   <span className="folder-cue">
-                    Abrir a pasta <FiArrowRight aria-hidden="true" />
+                    Ver os roteiros <FiArrowRight aria-hidden="true" />
                   </span>
                 </span>
               </Link>
