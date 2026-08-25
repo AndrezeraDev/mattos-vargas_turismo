@@ -113,6 +113,54 @@ export const tours = [
       'Degustações, ingressos e almoços à parte',
     ],
   },
+  {
+    slug: 'parque-da-ovelha',
+    title: 'Parque da Ovelha',
+    tag: 'Experiência de fazenda',
+    description:
+      'Uma manhã encantadora de vida no campo: interaja com as ovelhas e cordeirinhos, conheça o trabalho de tosa e viva a rotina de uma fazenda da Serra.',
+    image: '/assets/parque-da-ovelha.jpg',
+    meta: [
+      { icon: 'clock', label: 'Meio dia' },
+      { icon: 'users', label: 'Perfeito com crianças' },
+    ],
+    longDescription: [
+      'O Parque da Ovelha é uma experiência de fazenda que encanta todas as idades: você entra na rotina do campo, alimenta os cordeirinhos, acompanha demonstrações de tosa e descobre como a lã vira fio e peça artesanal.',
+      'Um passeio afetivo, educativo e cheio de fotos lindas, no cenário rural da Serra Gaúcha. Ideal para famílias com crianças — e para adultos que querem desacelerar.',
+    ],
+    highlights: [
+      'Interação com ovelhas e cordeirinhos',
+      'Demonstração de tosa e trabalho com a lã',
+      'Cenário rural incrível para fotos',
+      'Experiência guiada e no seu ritmo',
+      'Transporte privativo saindo do seu hotel',
+    ],
+  },
+  {
+    slug: 'gramado-e-canela',
+    title: 'Passeio em Gramado e Canela',
+    tag: 'Você monta o roteiro',
+    description:
+      'Os principais pontos das duas cidades entre 9h e 18h, com histórias, curiosidades, belas fotos e boa gastronomia. Nós sugerimos, vocês decidem.',
+    image: '/assets/gramado-centro.jpg',
+    meta: [
+      { icon: 'clock', label: 'Das 9h às 18h' },
+      { icon: 'map', label: 'Gramado e Canela' },
+    ],
+    longDescription: [
+      'Com saída sugerida entre 9h e 18h, visitamos os principais pontos de Gramado e Canela — sempre com histórias, curiosidades, belas fotos e boa gastronomia pelo caminho.',
+      'Os locais são apenas sugeridos: quem decide o roteiro é você. Entre as opções mais pedidas estão o Le Jardin (parque de lavandas), o Lago Negro e o pórtico bávaro, a fábrica de chocolate, a Catedral de Pedra, a Cascata ou o Sky Glass e o Castelinho do Caracol.',
+      'O tour tradicional acontece em Mini Van Spin, com água gelada à disposição, guia de turismo e roteiro exclusivo para o seu grupo.',
+    ],
+    highlights: [
+      'Le Jardin, parque de lavandas',
+      'Lago Negro e pórtico bávaro',
+      'Fábrica de chocolate e Catedral de Pedra',
+      'Cascata do Caracol ou Sky Glass',
+      'Castelinho do Caracol',
+      'Mini Van Spin com água gelada e guia de turismo',
+    ],
+  }
 ];
 
 export const findTourBySlug = (slug) => tours.find((t) => t.slug === slug);

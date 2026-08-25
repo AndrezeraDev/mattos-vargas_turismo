@@ -12,15 +12,18 @@ export const CATEGORIES = [
       { label: 'Faria Lemos' },
       { label: 'Pinto Bandeira' },
       { label: 'Altos Montes' },
+      { label: 'Gramado e Canela', to: '/passeio/gramado-e-canela' },
     ],
   },
   {
     slug: 'passeio-com-criancas',
     title: 'Passeio com Crianças',
     hint: 'Roteiros que funcionam para a família inteira',
-    image: '/assets/maria-fumaca.jpg',
+    image: '/assets/parque-da-ovelha.jpg',
     items: [
-      { label: 'Caminhos de Pedra' },
+      { label: 'Tour Chocolate' },
+      { label: 'Tour Kids Parques' },
+      { label: 'Parque da Ovelha', to: '/passeio/parque-da-ovelha' },
       { label: 'Maria Fumaça', to: '/passeio/maria-fumaca-vinicolas-privativo' },
     ],
   },
@@ -37,11 +40,15 @@ export const CATEGORIES = [
     ],
   },
   {
-    slug: 'ingressos',
-    title: 'Ingressos',
-    hint: 'Parques e atrações de Gramado e Canela',
-    image: '/assets/gramado-portico.jpg',
-    items: [],
+    slug: 'melhor-idade',
+    title: 'Melhor idade',
+    hint: 'Ritmo tranquilo, história e raízes da colônia',
+    image: '/assets/galeria/catedral-canela.jpg',
+    items: [
+      { label: 'Raízes Coloniais' },
+      { label: 'História e Cultura' },
+      { label: 'Linha Bella' },
+    ],
   },
 ];
 
