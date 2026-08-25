@@ -160,6 +160,54 @@ export const tours = [
       'Castelinho do Caracol',
       'Mini Van Spin com água gelada e guia de turismo',
     ],
+  },
+  {
+    slug: 'noite-suica',
+    title: 'Noite Suíça — Fondue',
+    tag: 'Clássico de inverno',
+    description:
+      'O fondue completo, do queijo ao chocolate, na cidade que fez dele tradição. Jantar em três tempos, sem pressa entre um e outro.',
+    image: '/assets/noite-suica.jpg',
+    meta: [
+      { icon: 'clock', label: '4 horas' },
+      { icon: 'users', label: 'Jantar em três tempos' },
+    ],
+    longDescription: [
+      'Gramado transformou o fondue em tradição, e a noite suíça é o jeito mais completo de viver isso: o jantar acontece em três tempos, do salgado ao doce, no ritmo da mesa.',
+      'Começa pelo fondue de queijo, servido com pães e legumes. Segue para o de carne, em que cada um frita o próprio pedaço no caldo quente e escolhe entre os molhos da casa. E termina no de chocolate, com frutas da estação para mergulhar.',
+      'É o programa mais pedido nos meses frios, quando a serra entra no clima que deu fama à cidade. O transporte de ida e volta do hotel está incluso.',
+    ],
+    highlights: [
+      'Fondue em três tempos: queijo, carne e chocolate',
+      'Molhos variados para acompanhar a carne',
+      'Frutas da estação no fondue de chocolate',
+      'O clima de inverno que deu fama a Gramado',
+      'Transporte de ida e volta do hotel',
+    ],
+  },
+  {
+    slug: 'noite-gaucha',
+    title: 'Noite Gaúcha',
+    tag: 'Tradição do Rio Grande',
+    description:
+      'Jantar com churrasco de espeto corrido e show de danças gaúchas, com chula, fandango e trajes típicos.',
+    image: '/assets/noite-gaucha.jpg',
+    meta: [
+      { icon: 'clock', label: '4 horas' },
+      { icon: 'users', label: 'Jantar + show' },
+    ],
+    longDescription: [
+      'A noite gaúcha é o encontro com a tradição do Rio Grande do Sul: churrasco em espeto corrido, com os cortes passando de mesa em mesa, acompanhado dos clássicos da cozinha campeira.',
+      'Entre um corte e outro, o show toma o salão — danças típicas em trajes de prenda e bombacha, com chula, fandango e a gaita que embala a música do Sul.',
+      'É a noite que mais surpreende quem vem de fora, e a que melhor explica de onde vem o jeito gaúcho de receber. Transporte de ida e volta do hotel incluso.',
+    ],
+    highlights: [
+      'Churrasco em espeto corrido',
+      'Acompanhamentos da cozinha campeira',
+      'Show de danças gaúchas ao vivo',
+      'Chula, fandango e música de gaita',
+      'Transporte de ida e volta do hotel',
+    ],
   }
 ];
 

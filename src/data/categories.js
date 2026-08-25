@@ -35,8 +35,8 @@ export const CATEGORIES = [
     items: [
       { label: 'Noite Italiana', to: '/passeio/noite-italiana' },
       { label: 'Noite Alemã', to: '/passeio/noite-alema' },
-      { label: 'Noite Gaúcha' },
-      { label: 'Noite Suíça' },
+      { label: 'Noite Gaúcha', to: '/passeio/noite-gaucha' },
+      { label: 'Noite Suíça', to: '/passeio/noite-suica' },
     ],
   },
   {
