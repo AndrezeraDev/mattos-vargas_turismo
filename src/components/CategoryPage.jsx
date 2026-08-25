@@ -15,12 +15,14 @@ const EASE = [0.2, 0.8, 0.2, 1];
    os que ainda não têm conteúdo viram um cartão de consulta */
 function Item({ item, category, index }) {
   const tour = item.to ? findTourBySlug(item.to.replace('/passeio/', '')) : null;
+  /* A foto vem do passeio quando ele existe; senão, da própria entrada */
+  const cover = tour?.image || item.image;
 
   const body = (
     <>
-      {tour ? (
+      {cover ? (
         <span className="cat-item-media">
-          <img src={tour.image} alt="" loading="lazy" />
+          <img src={cover} alt="" loading="lazy" />
         </span>
       ) : (
         <span className="cat-item-media is-empty" aria-hidden="true" />
@@ -42,8 +44,9 @@ function Item({ item, category, index }) {
     </>
   );
 
+  /* `is-soon` só ajusta o recuo de quem não tem foto nenhuma */
   const shared = {
-    className: `cat-item ${tour ? '' : 'is-soon'}`,
+    className: `cat-item ${cover ? '' : 'is-soon'}`,
   };
 
   return (

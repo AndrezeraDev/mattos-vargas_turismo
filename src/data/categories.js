@@ -1,6 +1,7 @@
-/* Pastas da home. `to` aponta para a página do passeio quando ela já
+/* Temas da home. `to` aponta para a página do passeio quando ela já
    existe; sem `to`, o item abre a conversa no WhatsApp — assim nenhum
-   item fica sem destino enquanto o conteúdo não é escrito. */
+   item fica sem destino enquanto o conteúdo não é escrito.
+   `image` dá foto a um item que ainda não tem página própria. */
 export const CATEGORIES = [
   {
     slug: 'roteiros-enoturismo',
@@ -9,9 +10,9 @@ export const CATEGORIES = [
     image: '/assets/vale-dos-vinhedos.jpg',
     items: [
       { label: 'Vale dos Vinhedos', to: '/passeio/vale-dos-vinhedos' },
-      { label: 'Faria Lemos' },
-      { label: 'Pinto Bandeira' },
-      { label: 'Altos Montes' },
+      { label: 'Faria Lemos', image: '/assets/faria-lemos.jpg' },
+      { label: 'Pinto Bandeira', image: '/assets/pinto-bandeira.jpg' },
+      { label: 'Altos Montes', image: '/assets/altos-montes.jpg' },
       { label: 'Gramado e Canela', to: '/passeio/gramado-e-canela' },
     ],
   },
